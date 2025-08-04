@@ -1,33 +1,243 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>St. Pierre, McCain, and Ranatza | SATX Group</title>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link href="tools/style.css" rel="stylesheet" type="text/css" />
-<link href="tools/960.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/Clarendon_LT_Std_700.font.js"></script>
-<script type="text/javascript">
-	Cufon.replace('h1,h3', {fontFamily: 'Clarendon LT Std', hover:true})
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Pierre, McCain, and Ranatza</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.82 8 12 11.82 4.18 8 12 4.18zM4 9.18l7 3.5v7.14l-7-3.5V9.18zm16 0v7.14l-7 3.5v-7.14l7-3.5z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.82 8 12 11.82 4.18 8 12 4.18zM4 9.18l7 3.5v7.14l-7-3.5V9.18zm16 0v7.14l-7 3.5v-7.14l7-3.5z'/%3E%3C/svg%3E">
+    
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #000000;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        #content {
+            background: rgba(40, 40, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .logo_box h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .main_box h2 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #e0e0e0;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .main_box h2 span {
+            display: block;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #b0b0b0;
+            font-weight: 300;
+            margin-top: 8px;
+        }
+
+        .info {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .info li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(80, 80, 80, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .info li:last-child {
+            margin-bottom: 0;
+        }
+
+        .info li:hover {
+            background: rgba(100, 100, 100, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .info .email-icon,
+        .info .phone-icon {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+            min-width: 30px;
+        }
+
+        .info p {
+            margin: 0;
+        }
+
+        .info a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .info a:hover {
+            color: #cccccc;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            #content {
+                padding: 30px 25px;
+                border-radius: 15px;
+            }
+
+            .logo_box h1 {
+                margin-bottom: 25px;
+            }
+
+            .main_box h2 {
+                margin-bottom: 8px;
+            }
+
+            .info {
+                margin-top: 25px;
+            }
+
+            .info li {
+                flex-direction: column;
+                gap: 8px;
+                padding: 20px 15px;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .info li:last-child {
+                margin-bottom: 0;
+            }
+
+            .info .email-icon,
+            .info .phone-icon {
+                width: 28px;
+                height: 28px;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            #content {
+                padding: 25px 20px;
+                border-radius: 12px;
+            }
+
+            .logo_box h1 {
+                margin-bottom: 20px;
+            }
+
+            .info {
+                margin-top: 20px;
+            }
+
+            .info li {
+                padding: 18px 12px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .info a {
+                padding: 8px;
+                border-radius: 6px;
+                display: inline-block;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            #content {
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            }
+        }
+    </style>
 </head>
 <body>
-<div id="shim"></div>
-<div id="content">
-	<div class="logo_box"><h1>SATX Group</h1></div>
-	<div class="main_box">
-		<h2>St. Pierre, McCain, and Ranatza<br/><span>For legal inquiries, please contact:</span></h2>
-		
-		<ul class="info">
-			<li>
-				<h3>E</h3>
-				<p><a href="mailto:legal@satxhome.net">legal@satxhome.net</a></p>
-			</li>
-		</ul>
-	</div>
-</div>
-
+    <div id="content">
+        <div class="logo_box">
+            <h1>SATX Group</h1>
+        </div>
+        <div class="main_box">
+            <h2>St. Pierre, McCain, and Ranatza<br/><span>For legal inquiries, please contact:</span></h2>
+            <ul class="info">
+                <li>
+                    <svg class="email-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="4" width="20" height="16" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 6l10 8 10-8" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <p><a href="mailto:legal@satxhome.net">legal@satxhome.net</a></p>
+                </li>
+                <!-- Phone contact - comment out this entire <li> block if not needed 
+                <li>
+                    <svg class="phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                </li> -->
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
